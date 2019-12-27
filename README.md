@@ -1,27 +1,31 @@
-# DogWalkingFront
+# Dog Walking Front
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+A web application to consume [dog-walking-api](https://github.com/alencarandre/dog-walking-api)
 
-## Development server
+## Dependencies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* nodejs (~> 10.16.3)
+* npm (~> 6.9.0)
+* [dog-walking-api](https://github.com/alencarandre/dog-walking-api)
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+ng s
+```
 
-## Build
+After server started, check in the console what is the url opened. Usually is http://localhost:4200
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Run tests
 
-## Running unit tests
+```sh
+ng test
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Licence
 
-## Running end-to-end tests
+This app is available as open source under the terms of the MIT License.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Author
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[@alencarandre](https://github.com/alencarandre)
