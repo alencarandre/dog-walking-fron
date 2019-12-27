@@ -8,18 +8,26 @@ A web application to consume [dog-walking-api](https://github.com/alencarandre/d
 * npm (~> 6.9.0)
 * [dog-walking-api](https://github.com/alencarandre/dog-walking-api)
 
+## Preparation
+
+First, start `dog-walking-api` project. Run command bellow
+
+```sh
+npm install
+```
+
 ## Usage
 
 ```sh
-ng s
+npm start
 ```
 
-After server started, check in the console what is the url opened. Usually is http://localhost:4200
+After server starting, check in the console what is the url opened. Usually is http://localhost:4200
 
 ## Run tests
 
 ```sh
-ng test
+npm test
 ```
 
 ## Licence
