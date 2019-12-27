@@ -1,0 +1,25 @@
+.pets {
+  .pet {
+    line-height: 25px;
+    float: left;
+    width: 33%;
+    min-width: 300px;
+
+    img {
+      overflow: auto;
+      float: left;
+      margin: 15px;
+    }
+  }
+}
+
+.details {
+  line-height: 25px;
+  min-height: 100px;
+
+  .detail {
+    width: 33%;
+    min-width: 300px;
+    float: left;
+  }
+}
