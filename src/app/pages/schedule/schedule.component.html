@@ -1,0 +1,44 @@
+<div>
+  <h3>Dog Walking</h3>
+</div>
+
+<div class="toolbox">
+  <div class="links">
+    <a routerLink="/"><<< Back to the list</a>
+  </div>
+</div>
+
+<form [formGroup]="scheduleForm">
+  <label>
+    Estimated duration
+    <select formControlName="duration" required>
+      <option *ngFor="let tablePrice of tablePrices" value="{{ tablePrice.cadence }}">
+        {{tablePrice.cadence}} minutes
+      </option>
+    </select>
+  </label>
+
+  <label>
+    Scheduled at
+    <input 
+      required
+      readonly
+      formControlName="scheduled_at"
+      [owlDateTime]="scheduled_at" 
+      [owlDateTimeTrigger]="scheduled_at"/>
+    <owl-date-time #scheduled_at></owl-date-time>
+  </label>
+
+  <label>
+    Dogs
+    <select formControlName="dogs" multiple>
+      <option *ngFor="let dog of dogs" value="{{ dog.id }}">
+        {{ dog.name }}
+      </option>
+    </select>
+  </label>
+
+  <p>
+    <input type="submit" (click)="onFormSubmit()" />
+  </p>
+</form>
