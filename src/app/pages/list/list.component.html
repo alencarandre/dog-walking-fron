@@ -1,0 +1,78 @@
+<div>
+  <h3>Dog Walking</h3>
+</div>
+
+<div class="toolbox">
+  <div class="links">
+    <b>Filter: </b>
+
+    <a routerLink="/" [ngClass]="upcoming ? '' : 'selected'">All</a>
+    <a routerLink="/" [queryParams]="{upcoming: true}" [ngClass]="upcoming ? 'selected' : ''">Upcomming</a>
+  </div>
+
+  <div class="actions">
+    <button routerLink="schedule">Schedule</button>
+  </div>
+</div>
+
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element">
+      <div [ngClass]="['status', element.status]">{{element.status}}</div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="duration">
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Duration</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.real_duration || element.duration }} min.</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+    <mat-cell *matCellDef="let element">R$ {{ (element.final_price || element.price) | number: '1.2-2' }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="scheduled_at">
+    <mat-header-cell *matHeaderCellDef>Scheduled at</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div [ngClass]="'datetime'" matTooltip="{{ element.finished_at | date: 'HH:mm' }}">
+        {{ (element.scheduled_at) | date: 'MM/dd/yyyy' }}
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="started_at">
+    <mat-header-cell *matHeaderCellDef>Started at</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div [ngClass]="element.started_at ? 'datetime' : ''" matTooltip="{{ element.started_at | date: 'HH:mm' }}">
+        {{ (element.started_at) | date: 'MM/dd/yyyy' }}
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="finished_at">
+    <mat-header-cell *matHeaderCellDef>Finished at</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div [ngClass]="element.finished_at ? 'datetime' : ''" matTooltip="{{ element.finished_at | date: 'HH:mm' }}">
+        {{ (element.finished_at | date: 'MM/dd/yyyy') }}
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="pets">
+    <mat-header-cell *matHeaderCellDef>Pets</mat-header-cell>
+    <mat-cell *matCellDef="let element" [ngClass]="'center'">{{element.pets.length}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let element" [ngClass]="'center'">
+      <a routerLink="/detail/{{element.id}}">Show</a>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>
+</mat-table>

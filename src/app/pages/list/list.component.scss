@@ -1,0 +1,21 @@
+mat-header-cell {
+  padding: 5px;
+  text-align: center !important;
+  font-weight: bold;
+}
+
+mat-cell {
+  padding: 5px;
+  text-align: center !important;
+
+  div {
+    &.datetime {
+      border: 1px solid lightgray;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: help;
+      // box-shadow: lightgrey 1px 1px 1px !important;
+    }
+    
+  }
+}
